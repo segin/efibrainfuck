@@ -15,5 +15,6 @@ extern EFI_RUNTIME_SERVICES *runtime;
 /* local includes */ 
 #include "malloc.h"
 #include "tape.h"
+#include "interpreter.h"
 
 #endif /* __EFIBRAINFUCK_H__ */ 
