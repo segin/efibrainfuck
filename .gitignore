@@ -1,1 +1,4 @@
 .*.swp
+*.o
+efibrainfuck.so
+efibrainfuck.efi
