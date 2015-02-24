@@ -1,6 +1,6 @@
 ARCH            = $(shell uname -m | sed s,i[3456789]86,ia32,)
 
-OBJS            = main.o
+OBJS            = main.o malloc.o tape.o
 TARGET          = efibrainfuck.efi
 
 EFIINC          = /usr/include/efi
