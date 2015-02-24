@@ -33,6 +33,8 @@ static inline EFI_STATUS free_pool(void *buffer)
 	return uefi_call_wrapper(boot->FreePool, 1, buffer);
 }
 
-
+/* Functions */
+void *malloc(UINTN size);
+void free(void *buffer);
 
 #endif /* __EFI_MALLOC_H__ */
