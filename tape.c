@@ -86,8 +86,8 @@ void bf_tape_forward(struct bf_tape *this) {
  */
 void bf_tape_reverse(struct bf_tape *this) {
         if (this->position <= 0) {
-            this->position = (TAPESIZE - 1);
+		this->position = (TAPESIZE - 1);
         } else {
-            this->position--;
+		this->position--;
         }
 }
