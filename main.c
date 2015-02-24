@@ -1,5 +1,4 @@
-#include <efi.h>
-#include <efilib.h>
+#include "efibrainfuck.h"
 
 static void
 usage(void)
