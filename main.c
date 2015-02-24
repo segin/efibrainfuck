@@ -1,5 +1,9 @@
 #include "efibrainfuck.h"
 
+EFI_SYSTEM_TABLE *sys_table;
+EFI_BOOT_SERVICES *boot;
+EFI_RUNTIME_SERVICES *runtime;
+
 static void
 usage(void)
 {
@@ -14,6 +18,9 @@ efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
    UINTN argc;
    CHAR16 **argv;
    InitializeLib(ImageHandle, SystemTable);
+   sys_table = SystemTable;
+   boot = sys_table->BootServices;
+   runtime = sys_table->RuntimeServices;
    status = get_args(ImageHandle, &argc, &argv);
    if (EFI_ERROR(status)) { 
      Print(L"ERROR: Parsing command line arguments: %d\n", status); 
