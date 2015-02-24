@@ -7,13 +7,13 @@
 #include <efi.h>
 #include <efilib.h>
 
-/* local includes */ 
-#include "malloc.h"
-#include "tape.h"
-
 /* Global variables */
 extern EFI_SYSTEM_TABLE *sys_table;
 extern EFI_BOOT_SERVICES *boot;
 extern EFI_RUNTIME_SERVICES *runtime;
+
+/* local includes */ 
+#include "malloc.h"
+#include "tape.h"
 
 #endif /* __EFIBRAINFUCK_H__ */ 
