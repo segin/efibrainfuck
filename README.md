@@ -9,7 +9,7 @@ Interface (UEFI).
 ## How do I build EFI Brainfuck?
 
  1. Install [GNU-EFI](http://sourceforge.net/projects/gnu-efi/)
- 2. Run 'make'.
+ 2. Run `make`.
 
 ## How do I run EFI Brainfuck? 
 
