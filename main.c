@@ -4,6 +4,32 @@ EFI_SYSTEM_TABLE *sys_table;
 EFI_BOOT_SERVICES *boot;
 EFI_RUNTIME_SERVICES *runtime;
 
+UINTN
+AsciiStrLen (
+  IN CHAR8    *s1
+  )
+/*++
+
+Routine Description:
+
+  Get string length
+
+Arguments:
+
+  s1  -  The string
+  
+Returns:
+
+--*/
+{
+  UINTN len;
+
+  ASSERT (s1 != NULL);
+
+  for (len = 0; *s1; s1 += 1, len += 1);
+  return len;
+}
+
 static void
 usage(void)
 {
