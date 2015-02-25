@@ -33,7 +33,7 @@ void bf_interp_fini(struct bf_interp *this) {
  * It's a brainfuck interpreter. 
  */
 void bf_interp_run(struct bf_interp *this, char *code) {
-	CHAR16 *out;
+	CHAR16 out[2];
 	for(this->pc = 0; this->pc < AsciiStrLen((CHAR8 *) code); this->pc++) { 
 		switch(code[this->pc]) {
 			case '>':
@@ -49,11 +49,9 @@ void bf_interp_run(struct bf_interp *this, char *code) {
 				bf_tape_dec(this->tape);
 				break;
 			case '.':
-				out = malloc(4); 
 				out[0] = bf_tape_get(this->tape);
 				out[1] = 0;
 				Print(out);
-				free(out);
 				break;
 			case '[':
 				if (bf_tape_get(this->tape) == 0) {
