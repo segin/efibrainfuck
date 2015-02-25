@@ -50,18 +50,19 @@ efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
    sys_table = SystemTable;
    boot = sys_table->BootServices;
    runtime = sys_table->RuntimeServices;
-   status = get_args(ImageHandle, &argc, &argv);
+/*   status = get_args(ImageHandle, &argc, &argv);
    if (EFI_ERROR(status)) { 
      Print(L"ERROR: Parsing command line arguments: %d\n", status); 
      return status; 
-   }
+   } */
    if (argc < 2) {
      usage();
      return EFI_SUCCESS;
    }
    interp = bf_interp_init();
-   bf_interp_run(interp, defaultcode);
+   bf_interp_run(interp, (char *) defaultcode);
    bf_interp_fini(interp);
+   Print(L"\n");
    
    return EFI_SUCCESS;
 }
