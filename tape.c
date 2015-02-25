@@ -5,10 +5,15 @@
 /**
  * bf_tape_init - construct a tape object. 
  *
- * Return a pointer to a tape object. 
+ * Return a pointer to a tape object. Zeros local memory.
  */
 struct bf_tape *bf_tape_init(void) {
-	return(malloc(sizeof(struct bf_tape)));
+	struct bf_tape *this = malloc(sizeof(struct bf_tape));
+	int i;
+	this->position = 0;
+	for(i = 0; i < TAPESIZE; i++) 
+		this->tape[i] = 0;
+	return this;
 }
 
 /**
