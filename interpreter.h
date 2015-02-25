@@ -12,6 +12,6 @@ struct bf_interp {
 /* Functions */
 struct bf_interp *bf_interp_init(void);
 void bf_interp_fini(struct bf_interp *this);
-
+void bf_interp_run(struct bf_interp *this, char *code);
 
 #endif /* __INTERPETER_H__ */
