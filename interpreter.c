@@ -59,7 +59,7 @@ void bf_interp_run(struct bf_interp *this, char *code) {
 				if (bf_tape_get(this->tape) == 0) {
 					int i = 1;
 					while (i > 0) {
-						++this->pc;
+						this->pc++;
 						switch(code[this->pc]) { 
 							case '[':
 								i++;
@@ -75,7 +75,7 @@ void bf_interp_run(struct bf_interp *this, char *code) {
 				if (bf_tape_get(this->tape) != 0) { 
 					int i = 1;
 					while (i > 0) { 
-						--this->pc;
+						this->pc--;
 						switch(code[this->pc]) {
 							case '[':
 								i--;
