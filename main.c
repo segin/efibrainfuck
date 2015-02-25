@@ -37,9 +37,12 @@ usage(void)
    Print(L"If no input text provided, input will read zeros.\n");
 }
 
+static CHAR8 defaultcode[] = "->++>+++>+>+>++>>+>+>+++>>+>+>++>+++>+++>+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>+>+>++>>>+++>>>>>+++>+>>>>>>>>>>>>>>>>>>>>>>+++>>>>>>>++>+++>+++>+>>+++>>>+++>+>+++>+>++>+++>>>+>+>+>+>++>+++>+>+>>+++>>>>>>>+>+>>>+>+>++>+++>+++>+>>+++>+++>+>+++>+>++>+++>++>>+>+>++>+++>+>+>>+++>>>+++>+>>>++>+++>+++>+>>+++>>>+++>+>+++>+>>+++>>+++>>+[[>>+[>]+>+[<]<-]>>[>]<+<+++[<]<<+]>>+[>]+++[++++++++++>++[-<++++++++++++++++>]<.<-<]";
+
 EFI_STATUS
 EFIAPI
 efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
+   struct bf_interp *interp; 
    EFI_STATUS status;
    UINTN argc;
    CHAR16 **argv;
@@ -56,7 +59,9 @@ efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
      usage();
      return EFI_SUCCESS;
    }
-   
+   interp = bf_interp_init();
+   bf_interp_run(interp, defaultcode);
+   bf_interp_fini(interp);
    
    return EFI_SUCCESS;
 }
